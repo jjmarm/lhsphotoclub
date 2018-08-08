@@ -7,6 +7,7 @@
     <title>LHS Photo Club</title>
     <link rel="stylesheet" href="css/master.css">
     <link rel="icon" href="img/favicon.png">
+    <link rel="stylesheet" href="css/all.css">
     <script src="js/jquery-3.3.1.min.js" charset="utf-8"></script>
     <script src="js/master.js" charset="utf-8"></script>
   </head>
@@ -17,16 +18,36 @@
     </div>
     <nav class="nav">
       <div class="logo">
-        <img src="img/photo_logo_lower.png" alt="LHS Photo Club">
+        <img src="img/photo_logo_lower.png" alt="LHS Photo Club" onmouseup="returnHome()">
       </div>
       <div class="right">
+        <!-- Regular (Desktop & Tablet) Navbar -->
         <a href="about.html">about</a>
         <a href="members.html">members</a>
         <a href="http://old.lhsphotoclub.org/members">alumni</a>
+        <a href="resources.html">resources</a>
       </div>
+      <div class="right menu-btn">
+        <!-- Menu Button for Lightbox -->
+        <i class="fas fa-bars" onclick="openNav()"></i>
+      </div>
+    <div class="sidenav" id="sidenav">
+      <!-- Phone Navbar -->
+      <a href="javascript:void(0)" class="closebtn" onmousedown="closeNav()">✕</a>
+      <a href="index.html">home</a>
+      <a href="about.html">about</a>
+      <a href="members.html">members</a>
+      <a href="http://old.lhsphotoclub.org/members">alumni</a>
+      <a href="resources.html">resources</a>
+    </div>
     </nav>
+    <div class="flex">
+      <div class="">
+
+      </div>
+    </div>
     <footer>
-      <p>© 2018 Lexington High School Photography All Original Photos. "Camera" icons used in favicon and logo designed by <a href="https://vecteezy.com">Vecteezy</a>.</p>
+      <p>© 2018 Lexington High School Photography Club. All Original Photos. "Camera" icons used in favicon and logo designed by <a href="https://vecteezy.com">Vecteezy</a>.</p>
     </footer>
   </body>
 </html>

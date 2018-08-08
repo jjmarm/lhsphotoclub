@@ -1,4 +1,17 @@
 // Basic page template
+
+function openNav() {
+  document.getElementById('sidenav').style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById('sidenav').style.width = "0";
+}
+
+function returnHome() {
+  window.location.href = "index.html"
+}
+
 $(document).ready(function () {
   var bannerClose = document.getElementById('close');
   var banner = document.getElementById('top-banner');
@@ -24,6 +37,7 @@ $(document).ready(function () {
   bannerLink.onmouseover = function () {
     bannerLink.style.color = "white";
   }
+
   bannerLink.onmouseout = function () {
     bannerLink.style.color = "#ffeb3b"
   }

@@ -8,7 +8,7 @@ html {
   overflow-y: hidden;
 }
 body {
-  font-family: "Helvetica Neue", "Franklin Gothic", Helvetica, system;
+  font-family: "Helvetica Neue", Helvetica, "Bahnschrift", "DIN Alternate", "Libre Franklin", system;
   font-weight: bold;
   margin: 0;
 
@@ -51,7 +51,6 @@ body {
   background-color: white;
   color: black;
 }
-
 .slide-up {
   display: none;
 }
@@ -67,8 +66,11 @@ body {
 }
 .nav .right {
   height: 20vh;
+  display: flex;
   float: left;
   text-align: left;
+  align-items: flex-end;
+  margin-left: 20px;
 }
 .nav a {
   transition: 1s;
@@ -79,6 +81,12 @@ body {
 }
 .nav a:hover {
   color: #00a1ff;
+}
+.nav .menu-btn {
+  display: none;
+}
+.sidenav {
+  display: none;
 }
 
 footer {
@@ -101,4 +109,67 @@ footer a {
 
 footer a:hover {
   color: #6abab5;
+}
+
+/* Flexbox implementation for document body */
+.flex {
+  display: flex;
+}
+
+@media screen and (max-width: 630px) {
+  .nav .right {
+    display: none;
+  }
+  .nav .menu-btn {
+    display: flex;
+    flex-direction: row-reverse;
+    height: 20vh;
+    float: right;
+    text-align: right;
+    vertical-align: middle;
+    padding-left: 100px;
+  }
+  .menu-btn i {
+    font-size: 7vh;
+    color: #00a1ff;
+    transition: 1s;
+  }
+
+  .menu-btn i:hover{
+    color: #6abab5;
+  }
+
+  .sidenav {
+    display: inline-block;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+  }
+
+  .sidenav a {
+    display: block;
+    text-decoration: none;
+    color: #00a1ff;
+    font-size: 2em;
+    padding: 5px 5px 5px 20px;
+  }
+
+  .sidenav a:hover {
+    color: #6abab5;
+  }
+
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
 }
