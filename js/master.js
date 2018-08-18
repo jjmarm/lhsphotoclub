@@ -12,7 +12,19 @@ function returnHome() {
   window.location.href = "index.html"
 }
 
+$(function(){
+    var includes = $('[data-include]');
+    jQuery.each(includes, function(){
+      var file = 'components/' + $(this).data('include') + '.html';
+      $(this).load(file);
+    });
+  });
+
 $(document).ready(function () {
+  // $("#navbar").load("/components/nav.html");
+  // $("#underconstr").load("/components/construction.html");
+
+  // Variable Declarations for elements
   var bannerClose = document.getElementById('close');
   var banner = document.getElementById('top-banner');
   var bannerLink = document.getElementById('toplink');
