@@ -2,6 +2,8 @@
   master.css
   Copyright (©) 2018 Lexington High School Photography Club All Rights Reserved.
   Credits to CSS-Tricks, W3Schools, MDN and Stack Overflow for certain components!
+
+  Credits to Lokesh Dakar for Lightbox 2 https://lokeshdhakar.com/projects/lightbox2/
 */
 
 ::selection {
@@ -277,8 +279,82 @@ footer a:hover {
 
 /* Main Page */
 .index {
-  flex: 1 0 360px;
+  flex-basis: 420px;
 }
-.index > i {
+.lb-wrapper {
+  flex: 0 1 auto;
+  flex-basis: 450px;
+}
+.lb-wrapper a:hover {
+  color: #6abab5;
+}
+.index img {
+  box-shadow: 0 0 10px gray;
+}
+.lb-wrapper img {
+  width: 100px;
+  box-shadow: none;
+  transition: 1s;
+  margin: 5px;
+}
+.lb-wrapper img:hover {
+  transform: scale(1.1);
+}
+.index h1 {
+  font-size: 45px;
+  margin: 4px 0 4px 0;
+  color: #00a1ff;
+}
+.index h2 {
+  font-size: 30px;
+  border-bottom: solid 2px;
+  margin: 0;
+  padding-bottom: 5px;
+  color: #00a1ff;
+}
+.index i {
   font-style: normal;
+}
+.index p {
+  font-size: 20px;
+}
+.ig-hover {
+  transition: 1s;
+}
+.ig-hover:hover {
+  color: #00a1ff;
+}
+.moveRight {
+  transform: translateX(100);
+}
+
+@media screen and (max-width: 420px) {
+  .index {
+    display: flex;
+    justify-content: center;
+  }
+  .lb-wrapper {
+    flex-basis: 300px;
+    justify-content: flex-start;
+  }
+  .index h1 {
+    font-size: 30px;
+  }
+  .index h2 {
+    font-size: 20px;
+    width: 100%;
+  }
+  .index p {
+    font-size: 15px;
+  }
+  .index img {
+    width: 300px;
+  }
+}
+
+#index-content {
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
