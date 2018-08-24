@@ -3,11 +3,9 @@
 function openNav() {
   document.getElementById('sidenav').style.width = "100%";
 }
-
 function closeNav() {
   document.getElementById('sidenav').style.width = "0";
 }
-
 function returnHome() {
   window.location.href = "index.html"
 }
@@ -30,13 +28,17 @@ $(function(){
   });
 
 $(document).ready(function () {
-  // $("#navbar").load("/components/nav.html");
-  // $("#underconstr").load("/components/construction.html");
 
   // Variable Declarations for elements
   var bannerClose = document.getElementById('close');
   var banner = document.getElementById('top-banner');
   var bannerLink = document.getElementById('toplink');
+
+  // Check if banner was closed
+  var isBannerClosed = sessionStorage.getItem('x');
+  if (isBannerClosed == "true") {
+    banner.style.display = "none"
+  }
 
   bannerClose.onmouseover = function () {
     banner.classList.toggle("white");
@@ -52,7 +54,7 @@ $(document).ready(function () {
 
   bannerClose.onclick = function () {
     banner.classList.add("slide-up");
-    window.history.pushState("object or string", "Closed Popup", "?x=t");
+    sessionStorage.setItem('x','true')
   }
 
   bannerLink.onmouseover = function () {
