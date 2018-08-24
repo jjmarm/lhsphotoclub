@@ -13,8 +13,12 @@ function returnHome() {
 }
 
 function moveArrow() {
-  console.log("hover");
-  $('#ig-arrow').classList.toggle("moveRight");
+  document.getElementById('ig-arrow').classList.add("moveRight");
+  document.getElementById('ig-arrow').classList.remove("moveLeft");
+}
+function moveBackArrow() {
+  document.getElementById('ig-arrow').classList.add("moveLeft");
+  document.getElementById('ig-arrow').classList.add("moveRight");
 }
 
 $(function(){
@@ -48,7 +52,7 @@ $(document).ready(function () {
 
   bannerClose.onclick = function () {
     banner.classList.add("slide-up");
-    //banner.style.display = "none";
+    window.history.pushState("object or string", "Closed Popup", "?x=t");
   }
 
   bannerLink.onmouseover = function () {
@@ -60,6 +64,7 @@ $(document).ready(function () {
   }
 
   $(function () {
+    var result = "<div class='index-photocontainer'>";
     for (var i = 1; i < 18; i++) {
       var caption;
       switch (i) {
@@ -121,7 +126,9 @@ $(document).ready(function () {
           caption = ""
           break;
       }
-      $(".lb-wrapper").append("<a href='img/index/" + i + ".jpg' data-lightbox='indexPhotos' data-title='" + caption + "'><img src='img/index/" + i + ".jpg'></a>")
+      result += ("<a href='img/index/" + i + ".jpg' data-lightbox='indexPhotos' data-title='" + caption + "'><img src='img/index/" + i + ".jpg'></a>")
     }
+    result += "</div>"
+    $(".lb-wrapper").append(result)
   })
 })

@@ -15,40 +15,9 @@
         <p>You’re using the new and updated version of lhsphotoclub.org. To go back to the old one, click <a id="toplink" href="http://old.lhsphotoclub.org"> here</a>.</p>
         <a id="close" href="#">✕</a>
       </div>
-      <nav class="nav">
-        <div class="logo">
-          <img src="img/photo_logo_lower.png" alt="LHS Photo Club" onmouseup="returnHome()">
-        </div>
-        <div class="right">
-          <!-- Regular (Desktop & Tablet) Navbar -->
-          <a href="about.html">about</a>
-          <a href="members.html">members</a>
-          <a href="http://old.lhsphotoclub.org/members">alumni</a>
-          <a href="resources.html">resources</a>
-        </div>
-        <div class="menu-btn">
-          <!-- Menu Button for Lightbox -->
-          <i class="fas fa-bars" onclick="openNav()"></i>
-        </div>
-      <div class="sidenav" id="sidenav">
-        <!-- Phone Navbar -->
-        <a href="javascript:void(0)" class="closebtn" onmousedown="closeNav()">✕</a>
-        <a href="index.html">home</a>
-        <a href="about.html">about</a>
-        <a href="members.html">members</a>
-        <a href="http://old.lhsphotoclub.org/members">alumni</a>
-        <a href="resources.html">resources</a>
-      </div>
-      </nav>
-      <div class="container under-construction">
-        <div class="wrapper">
-          <h1>Under<br>Construction <i class="fas fa-wrench"></i></h1>
-          <p>Unfortunately, this page is still under construction. <br>It will be available soon.<br>          <a href="index.html">Click here to return home.</a></p>
-        </div>
-      </div>
+      <nav data-include="nav"></nav>
+      <div data-include="construction"></div>
     </div>
-    <footer>
-      <p>© 2018 Lexington High School Photography Club. All Original Photos. "Camera" icons used in favicon and logo designed by <a href="https://vecteezy.com">Vecteezy</a>.</p>
-    </footer>
+    <footer data-include="footer"></footer>
   </body>
 </html>

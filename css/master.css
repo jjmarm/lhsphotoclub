@@ -25,6 +25,7 @@ body {
   height: 100%;
   font-family: "Helvetica Neue", Helvetica, "Bahnschrift", "DIN Alternate", "Libre Franklin", system;
   font-weight: bold;
+  letter-spacing: -1px;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -324,8 +325,19 @@ footer a:hover {
 .ig-hover:hover {
   color: #00a1ff;
 }
+@keyframes move-to-right {
+  from {margin: 0;}
+  to {margin-left: 5px;}
+}
+@keyframes move-to-left {
+  from {margin-left: 5px;}
+  to {margin: 0}
+}
 .moveRight {
-  transform: translateX(100);
+  animation: move-to-right 1s forwards;
+}
+.moveLeft {
+  animation: move-to-left 1s forwards;
 }
 
 @media screen and (max-width: 420px) {
@@ -336,6 +348,12 @@ footer a:hover {
   .lb-wrapper {
     flex-basis: 300px;
     justify-content: flex-start;
+    flex-flow: column;
+  }
+  .index-photocontainer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
   }
   .index h1 {
     font-size: 30px;
@@ -349,6 +367,9 @@ footer a:hover {
   }
   .index img {
     width: 300px;
+  }
+  .lb-wrapper img {
+    width: 130px;
   }
 }
 
