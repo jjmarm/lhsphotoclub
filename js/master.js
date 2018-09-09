@@ -6,8 +6,12 @@ function openNav() {
 function closeNav() {
   document.getElementById('sidenav').style.width = "0";
 }
-function returnHome() {
-  window.location.href = "index.html"
+function returnHome(isEmbedded) {
+  if (isEmbedded) {
+    window.location.href = "/index.html"
+  } else {
+    window.location.href = "index.html"
+  }
 }
 
 function moveArrow() {
@@ -22,11 +26,28 @@ function moveBackArrow() {
 $(function(){
     var includes = $('[data-include]');
     jQuery.each(includes, function(){
-      var file = 'components/' + $(this).data('include') + '.html';
+      if ($(this).data('include').includes("!") === true) {
+        var file = '/components/' + $(this).data('include').slice(1) + '.html';
+      }
+      else {
+        var file = 'components/' + $(this).data('include') + '.html';
+      }
       $(this).load(file);
     });
   });
-
+$(function(){
+  var lbName = $('[data-lbname]');
+  var lbLim = $('[data-lblimit]');
+  var lbSource = $('[data-lbsource]');
+  $.each(lbLim, function () {
+    $(this).data("data-lblimit") = parseInt($(this).data("data-lblimit"));
+  });
+  for (var i = 0; i < lbName.length; i++) {
+    for (var j = 0; j < lbLim[i]; i++) {
+      $(this).load("<a href='/img/members/'"+ $(this).data("lbsource") + "/" + j + ".jpg' data-lightbox='" + $(this).data("lbname") + "'><img src='img/members/'"+ $(this).data("lbSource") + "/" + j + ".jpg'/></a>")
+    }
+  };
+});
 $(document).ready(function () {
 
   // Variable Declarations for elements
