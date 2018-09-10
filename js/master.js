@@ -24,30 +24,33 @@ function moveBackArrow() {
 }
 
 $(function(){
-    var includes = $('[data-include]');
-    jQuery.each(includes, function(){
-      if ($(this).data('include').includes("!") === true) {
-        var file = '/components/' + $(this).data('include').slice(1) + '.html';
-      }
-      else {
-        var file = 'components/' + $(this).data('include') + '.html';
-      }
-      $(this).load(file);
-    });
-  });
-$(function(){
-  var lbName = $('[data-lbname]');
-  var lbLim = $('[data-lblimit]');
-  var lbSource = $('[data-lbsource]');
-  $.each(lbLim, function () {
-    $(this).data("data-lblimit") = parseInt($(this).data("data-lblimit"));
-  });
-  for (var i = 0; i < lbName.length; i++) {
-    for (var j = 0; j < lbLim[i]; i++) {
-      $(this).load("<a href='/img/members/'"+ $(this).data("lbsource") + "/" + j + ".jpg' data-lightbox='" + $(this).data("lbname") + "'><img src='img/members/'"+ $(this).data("lbSource") + "/" + j + ".jpg'/></a>")
+  var includes = $('[data-include]');
+  jQuery.each(includes, function(){
+    if ($(this).data('include').includes("!") === true) {
+      var file = '/components/' + $(this).data('include').slice(1) + '.html';
     }
-  };
+    else {
+      var file = 'components/' + $(this).data('include') + '.html';
+    }
+    $(this).load(file);
+  });
 });
+
+$(function(){
+  var lightbox = document.getElementById('photolightbox')
+  var result = "<div class='photolightbox'>";
+
+  var source = lightbox.dataset.lbsource;
+  var limit = parseInt(lightbox.dataset.lblimit);
+  var name = lightbox.dataset.lbname;
+
+  for (var i = 1; i < limit; i++) {
+      result += ("<a href='/img/members/" + source + "/" + i + ".jpg' data-lightbox='" + name + "'><img src='/img/members/"+ source + "/" + i + ".jpg'/></a>");
+  }
+  result += "</div>";
+  lightbox.innerHTML = result;
+});
+
 $(document).ready(function () {
 
   // Variable Declarations for elements
