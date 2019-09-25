@@ -135,10 +135,16 @@ footer {
 }
 
 .footer {
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 10px;
   flex: 1 1 auto;
+}
+
+.two-col {
+  display: flex;
+  flex-flow: row nowrap;
 }
 
 @keyframes move-to-right {
@@ -281,6 +287,10 @@ footer a:hover {
 
 #members-abhinav-page {
   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/img/members/abhinavm/cover.jpg");
+}
+
+#members-aadharsh-page {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/img/members/aadharshp/cover.jpg");
 }
 
 /* For Mobile Websites */
@@ -426,26 +436,59 @@ footer a:hover {
   justify-content: center;
 
   height: 500px;
-  font-size: 15vw;
+  font-size: 2vw;
   flex: auto;
 
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-size: cover;
 
   overflow: hidden;
 
   /*color: rgb(123, 23, 244);*/
-  text-shadow: 0 0 15px black;
+  /* text-shadow: 0 0 20px lightgray; */
 }
 .memcover_julianmarmier {
   background-image: url("/img/members/julianm/julian-cover.jpg");
 }
-.image-banner .nameholder {
-  width: 70%;
-  display: flex;
-  flex-flow: column wrap;
+.memcover_aadharshpannirselvam {
+  background-image: url('/img/members/aadharshp/cover.jpg');
 }
+.memcover_abhinavmukherjee {
+  background-image: url('/img/members/abhinavm/cover.jpg');
+}
+
+.memcover_julianmarmier .nameholder > div {
+  background: url("/img/members/julianm/julian-cover.jpg") no-repeat center/400%;
+}
+.memcover_aadharshpannirselvam .nameholder > div {
+  background: url("/img/members/aadharshp/cover.jpg") no-repeat center/750%;
+}
+.memcover_abhinavmukherjee .nameholder > div {
+  background: url('/img/members/abhinavm/cover.jpg') no-repeat center/300%;
+}
+
+.image-banner .nameholder {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-size: 100px;
+  line-height: 80px;
+  vertical-align: middle;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center; justify-content: center;
+}
+
+.image-banner .nameholder > div {
+  color: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: lightgray;
+}
+
 .image-banner span {
   line-height: 100px;
 }
@@ -506,6 +549,26 @@ footer a:hover {
 #photolightbox img:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+.uploadbox__uploading,
+.uploadbox__success,
+.uploadbox__error {
+  display: none;
+}
+
+.uploadbox.has-advanced-upload {
+  background-color: white;
+  outline: 2px dashed black;
+  outline-offset: -10px;
+}
+.uploadbox.has-advanced-upload .uploadbox__dragndrop {
+  display: inline;
+}
+
+.uploadbox.is-dragover {
+  background-color: grey;
+}
+
 
 @media screen and (max-width: 420px) {
   .index {

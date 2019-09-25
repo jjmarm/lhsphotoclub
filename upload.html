@@ -1,0 +1,90 @@
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LHS Photo Club</title>
+  <link rel="stylesheet" href="css/master.css">
+  <link rel="icon" href="img/favicon.png">
+  <link rel="stylesheet" href="css/all.css">
+  <script src="js/jquery-3.3.1.min.js" charset="utf-8"></script>
+  <script src="js/master.js" charset="utf-8"></script>
+  <script defer charset="utf-8">
+  var isAdvancedUpload = function() {
+    var div = document.createElement('div');
+    return (('draggable' in div) || ('ondragstart' in div && 'ondrop' in div)) && 'FormData' in window && 'FileReader' in window;
+  }();
+
+  var $form = $('.uploadbox');
+
+  if (isAdvancedUpload) {
+    $form.addClass('has-advanced-upload');
+    var droppedFiles = false;
+
+    $form.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    })
+    .on('dragover dragenter', function() {
+      $form.addClass('is-dragover');
+    })
+    .on('dragleave dragend drop', function() {
+      $form.removeClass('is-dragover');
+    })
+    .on('drop', function(e) {
+      droppedFiles = e.originalEvent.dataTransfer.files;
+    });
+    e.preventDefault();
+
+    var ajaxData = new FormData($form.get(0));
+
+    if (droppedFiles) {
+      $.each( droppedFiles, function(i, file) {
+        ajaxData.append( $input.attr('name'), file );
+      });
+    }
+
+    $.ajax({
+      url: $form.attr('action'),
+      type: $form.attr('method'),
+      data: ajaxData,
+      dataType: 'json',
+      cache: false,
+      contentType: false,
+      processData: false,
+      complete: function() {
+        $form.removeClass('is-uploading');
+      },
+      success: function(data) {
+        $form.addClass( data.success == true ? 'is-success' : 'is-error' );
+        if (!data.success) $errorMsg.text(data.error);
+      },
+      error: function() {
+        // Log the error, show an alert, whatever works for you
+      }
+    });
+  }
+</script>
+</head>
+<body>
+  <div class="content">
+    <div id="top-banner" class="top-banner">
+      <p>You’re using the new and updated version of lhsphotoclub.org. To go back to the old one, click <a id="toplink" href="http://old.lhsphotoclub.org"> here</a>.</p>
+      <a id="close" href="#">✕</a>
+    </div>
+    <nav data-include="nav"></nav>
+    <div>
+      <form class="uploadbox" action="" method="post" enctype="multipart/form-data">
+        <div class="uploadbox__input">
+          <input class="uploadbox__file" type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" multiple />
+          <label for="file"><strong>Choose a file</strong><span class="uploadbox__dragndrop"> or drag it here</span>.</label>
+          <button class="uploadbox__button" type="submit">Upload</button>
+        </div>
+        <div class="uploadbox__uploading">Uploading&hellip;</div>
+        <div class="uploadbox__success">Done!</div>
+        <div class="uploadbox__error">Error! <span></span>.</div>
+      </form>
+    </div>
+  </div>
+  <footer data-include="footer"></footer>
+</body>
+</html>
