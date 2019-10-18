@@ -6,6 +6,12 @@
   Credits to Lokesh Dakar for Lightbox 2 https://lokeshdhakar.com/projects/lightbox2/
 */
 
+:root {
+  --blue-color: #00a1ff;
+  --teal-color: #6abab5;
+  --yellow-color: #ffeb3b;
+}
+
 ::selection {
   background-color: #ffeb3b;
 }
@@ -93,6 +99,9 @@ a:hover {
 .nav .logo {
   float: left;
   margin-left: 20px;
+}
+.nav .logo:hover {
+  cursor: pointer auto;
 }
 .nav .logo img {
   height: 20vh;
@@ -442,7 +451,7 @@ footer a:hover {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover;
+  background-size: cover ;
 
   overflow: hidden;
 
@@ -569,6 +578,41 @@ footer a:hover {
   background-color: grey;
 }
 
+
+/* Resources Page */
+.resources {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 10px 20px 10px 20px;
+}
+.resources h1 {
+  font-size: 40px;
+  border-bottom: solid 5px;
+  margin: 0;
+  padding-bottom: 5px;
+  color: #00a1ff;
+}
+.resource-li {
+  display: flex;
+  flex-flow: row nowrap;
+  flex: 0 0 auto;
+  border: solid var(--blue-color);
+  border-width: 0 0 5px 0;
+  align-items: center;
+}
+.resource-title {
+  flex: 1.5 1 66%;
+  font-size: 20px;
+}
+.resource-download {
+  flex: 1 1 34%;
+}
+.resource-li ul {
+  list-style-type: none;
+}
+.resource-li i {
+  padding-right: 5px;
+}
 
 @media screen and (max-width: 420px) {
   .index {
